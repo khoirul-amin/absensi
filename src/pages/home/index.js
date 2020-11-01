@@ -9,6 +9,7 @@ import viewAbsenPegawai from '../viewAbsenPegawai'
 import viewAbsenSiswa from '../viewAbsenSiswa'
 import { cekSession } from '../../actions/session'
 import DrawerContent from '../drawerContent/drawerContent'
+import scannerPage from '../scannerPage'
 // import { Icon } from 'react-native-vector-icons/Icon'
 
 
@@ -23,32 +24,17 @@ const HomeView = ({ navigation }) => {
 
     return (
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}
-        // overlayColor="transparent"
-        // drawerContentOptions={{
-        //     inactiveTintColor: '#40bf80',
-        //     activeTintColor: 'black',
-        //     labelStyle: {
-        //         fontSize: 16,
-        //         fontWeight: 'bold'
-        //     },
-        //     itemStyle: {
-        //         marginTop: 0,
-        //         marginVertical: 0,
-        //         marginLeft: 0,
-        //         borderRadius: 0,
-        //         marginRight: 0,
-        //         marginStart: 0,
-        //         color: '#40bf80',
-        //         backgroundColor: 'transparent'
-        //     },
-        // }}
         >
             <Drawer.Screen
                 name="Absen Pegawai"
                 component={viewAbsenPegawai}
             />
             <Drawer.Screen
-                name="Absen Siswa"
+                name="absenMasukPegawai"
+                component={scannerPage}
+            />
+            <Drawer.Screen
+                name="Siswa"
                 component={viewAbsenSiswa}
             />
         </Drawer.Navigator>

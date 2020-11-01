@@ -2,30 +2,35 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { View, Text, Image } from 'react-native'
 import { ImgToggle } from '../../assets'
-import { removeSession } from '../../actions/session'
+import Icon from 'react-native-vector-icons/FontAwesome'
+// import { removeSession } from '../../actions/session'
 
-const TopBar = ({navigation,title}) => {
-    const drawerOption = () =>{
+const TopBar = ({ navigation, title }) => {
+    const drawerOption = () => {
         navigation.navigation.openDrawer()
         // console.log(title)
     }
     return (
         <View style={styles.view}>
             <View style={styles.button}>
-                <TouchableOpacity onPress={ () => drawerOption()}>
-                    <Image style={styles.image} source={ImgToggle} />
+                <TouchableOpacity onPress={() => drawerOption()}>
+                    <Icon
+                        name="align-justify"
+                        color='#495057'
+                        size={25}
+                    />
                 </TouchableOpacity>
             </View>
             <View style={styles.text}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>
-                    {title  ? title : 'TopBar'}
+                    {title ? title : 'TopBar'}
                 </Text>
             </View>
-            <View style={{width:40, marginRight:5}}>
+            {/* <View style={{width:40, marginRight:5}}>
                 <TouchableOpacity onPress={()=>removeSession(navigation)}>
                     <Text>Logout</Text>
                 </TouchableOpacity>
-            </View>
+            </View> */}
         </View>
     )
 }
@@ -37,11 +42,11 @@ const styles = {
         paddingTop: 10,
         paddingBottom: 10
     },
-    image:{
+    image: {
         resizeMode: "contain",
-        width:35,
-        height:20,
-        marginTop:2
+        width: 35,
+        height: 20,
+        marginTop: 2
     },
     button: {
         width: 40,

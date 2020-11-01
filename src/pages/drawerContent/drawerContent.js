@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
 import { Avatar, Title, Caption, Paragraph, Drawer } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { removeSession } from '../../actions/session'
 
 const DrawerContent = (props) => {
     return (
@@ -38,28 +39,52 @@ const DrawerContent = (props) => {
                     <DrawerItem
                         icon={({ color, size }) => (
                             <Icon
-                                name="facebook"
+                                name="home"
                                 color={color}
                                 size={size}
                                 solid
                             />
                         )}
                         label="Home"
-                    onPress={() => { props.navigation.navigate('Home') }}
+                        onPress={() => { props.navigation.navigate('Home') }}
+                    />
+                    <DrawerItem
+                        icon={({ color, size }) => (
+                            <Icon
+                                name="user"
+                                color={color}
+                                size={size}
+                                solid
+                            />
+                        )}
+                        label="Nilai Siswa"
+                        onPress={() => { props.navigation.navigate('Siswa') }}
+                    />
+                    <DrawerItem
+                        icon={({ color, size }) => (
+                            <Icon
+                                name="qrcode"
+                                color={color}
+                                size={size}
+                                solid
+                            />
+                        )}
+                        label="Absensi"
+                        onPress={() => { props.navigation.navigate('Absen Pegawai') }}
                     />
                 </Drawer.Section>
             </DrawerContentScrollView>
             <Drawer.Section style={styles.bottomDrawerSection}>
-                <DrawerItem 
-                    icon={({color, size}) => (
-                        <Icon 
-                        name="facebook" 
-                        color={color}
-                        size={size}
+                <DrawerItem
+                    icon={({ color, size }) => (
+                        <Icon
+                            name="sign-out"
+                            color={color}
+                            size={size}
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {console.log('oeoeoeo')}}
+                    onPress={() => removeSession(props.navigation)}
                 />
             </Drawer.Section>
         </View>
